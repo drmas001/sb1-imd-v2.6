@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  environment = { NODE_VERSION = "18" }
+
+[build.environment]
+  VITE_SUPABASE_URL = "https://ejnvatnqxbzredbtcdhb.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqbnZhdG5xeGJ6cmVkYnRjZGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA4Mzc4NDcsImV4cCI6MjA0NjQxMzg0N30.F1GtaKJ75sEMH7VMMWvlNkbOvzJDjlUX5TyLrIX9BNo"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self' https://ejnvatnqxbzredbtcdhb.supabase.co; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://ejnvatnqxbzredbtcdhb.supabase.co; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;"
